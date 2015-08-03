@@ -17,12 +17,21 @@ body{
   margin-top: 15px;
 }
 
-form input, form textarea{
+form input, form textarea, form select{
   margin: 10px 0;
 }
 
 form p{
   margin: 15px 0;
+}
+
+/***************************************************
+                    MIS TRAMITES
+****************************************************/
+
+.action-tramite{
+  margin: 5px;
+  cursor: pointer;
 }
 
 /***************************************************

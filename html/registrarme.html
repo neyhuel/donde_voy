@@ -28,40 +28,25 @@
 			<div class="navbar-collapse collapse" id="navbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Nosotros</a></li>
-					<li><a href="login.html">Iniciar Sesion</a></li>
+					<li class="active"><a href="login.html">Iniciar Sesion</a></li>
 					<li><a href="contacto.html">Contacto</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
-	<div class="container">
-		<div class="row separacion">
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/1.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/2.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/3.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/4.png">
-			</div><!-- /.col-sm-3 -->
-		</div>			
-		<div class="row separacion">
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/5.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/6.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/7.png">
-			</div><!-- /.col-sm-3 -->
-			<div class="col-sm-3">
-				<img class="img-responsive" src="images/8.png">
-			</div><!-- /.col-sm-3 -->
+		<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<form id="form-login" method="post" action="logueado.html">
+					<input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre" data-toggle="tooltip" data-placement="right" title="Ingresa tu Nombre y Apellido" required>
+					<input class="form-control" id="usuario" name="usuario" type="text" placeholder="Usuario/Nickname" data-toggle="tooltip" data-placement="right" title="Ingresa tu usuario" required>
+					<input class="form-control" id="email" name="email" type="text" placeholder="Email" data-toggle="tooltip" data-placement="right" title="Ingresa tu email" required>
+					<input class="form-control" id="contrasenia" name="contrasenia" type="password" placeholder="Contraseña" data-toggle="tooltip" data-placement="right" title="Ingresa una contraseña" required>
+					<input class="form-control" id="contrasnia2" name="contrasnia2" type="password" placeholder="Repite tu contraseña" data-toggle="tooltip" data-placement="right" title="Repite tu contraseña" required>
+					<input class="btn btn-success to-right" id="Enviar" name="Enviar" value="Crear Cuenta" type="submit">
+					<p><a class="to-left" href="#">Olvide mi contraseña</a></br><a class="to-left" href="registrarme.html">Registrarme</a></p>
+				</form>
+			</div>
 		</div>
 	</div>
 	<!-- jQuery v2.1.3 -->
