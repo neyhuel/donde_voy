@@ -1,8 +1,12 @@
-package org.dondevoy.usuario.entities;
+package org.dondevoy.usuario.dto;
 
 import java.util.List;
 
 import javax.persistence.Entity;
+
+import org.dondevoy.usuario.entities.EstadoUsuario;
+import org.dondevoy.usuario.entities.Nota;
+import org.dondevoy.usuario.entities.TipoUsuario;
 
 /**
  * @author Pablo Lucero
@@ -10,7 +14,7 @@ import javax.persistence.Entity;
  *
  */
 @Entity
-public class Usuario {
+public class UsuarioDTO {
 
 	private String contraseña;
 	private String correo;
@@ -21,16 +25,6 @@ public class Usuario {
 	
 	private List<EstadoUsuario> listEstadoUsuario;
 	private List<Nota> listNota;
-	
-	public Usuario(String contraseña, String correo, String correoRecuperacion,
-			String nombreUsuario, Boolean notificacionActivada) {
-		super();
-		this.contraseña = contraseña;
-		this.correo = correo;
-		this.correoRecuperacion = correoRecuperacion;
-		this.nombreUsuario = nombreUsuario;
-		this.notificacionActivada = notificacionActivada;
-	}
 	
 	public String getContraseña() {
 		return contraseña;
