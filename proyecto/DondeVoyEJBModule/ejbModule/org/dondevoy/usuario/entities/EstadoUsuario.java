@@ -2,14 +2,19 @@ package org.dondevoy.usuario.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author Pablo Lucero
  * 
  *
  */
-
+@Entity
 public class EstadoUsuario {
 
+	@Id
+	private int idEstadoUsuario;
 	private Date fechaCambio;
 	
 	private UsuarioEstado usuarioEstado;

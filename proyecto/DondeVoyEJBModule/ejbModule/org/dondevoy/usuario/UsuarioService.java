@@ -4,7 +4,7 @@ import org.dondevoy.aplicacion.excepciones.BusinessException;
 import org.dondevoy.usuario.dto.UsuarioDTO;
 import org.dondevoy.usuario.entities.Usuario;
 
-public class UsuarioService {
+public class UsuarioService implements UsuarioServiceRemote {
 
 	public void registrarUsuario (UsuarioDTO usuarioDTO) throws BusinessException {
 		try {
@@ -17,5 +17,11 @@ public class UsuarioService {
 		}
 		
 		Usuario usuario = new Usuario(usuarioDTO.getContraseña(), usuarioDTO.getCorreo(), usuarioDTO.getCorreoRecuperacion(), usuarioDTO.getNombreUsuario(), true);
+	}
+
+	@Override
+	public UsuarioDTO buscarUsuario(String correo) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

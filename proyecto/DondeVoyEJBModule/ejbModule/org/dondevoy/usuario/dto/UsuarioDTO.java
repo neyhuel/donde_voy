@@ -2,8 +2,6 @@ package org.dondevoy.usuario.dto;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-
 import org.dondevoy.usuario.entities.EstadoUsuario;
 import org.dondevoy.usuario.entities.Nota;
 import org.dondevoy.usuario.entities.TipoUsuario;
@@ -13,8 +11,8 @@ import org.dondevoy.usuario.entities.TipoUsuario;
  * 
  *
  */
-@Entity
-public class UsuarioDTO {
+
+public class UsuarioDTO implements Serializable {
 
 	private String contraseña;
 	private String correo;
