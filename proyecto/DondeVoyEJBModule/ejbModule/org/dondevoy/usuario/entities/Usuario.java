@@ -3,6 +3,9 @@ package org.dondevoy.usuario.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * @author Pablo Lucero
@@ -12,16 +15,25 @@ import javax.persistence.Entity;
 @Entity
 public class Usuario {
 
+	@Id
+	private int idUsuario;
 	private String contraseña;
 	private String correo;
 	private String correoRecuperacion;
 	private String nombreUsuario;
 	private Boolean notificacionActivada;
-	private TipoUsuario listTipoUsuario;
 	
+	@ManyToOne
+	private TipoUsuario tipoUsuario;
+	@OneToMany
 	private List<EstadoUsuario> listEstadoUsuario;
+	@OneToMany
 	private List<Nota> listNota;
 	
+	public Usuario() {
+		
+	}
+
 	public Usuario(String contraseña, String correo, String correoRecuperacion,
 			String nombreUsuario, Boolean notificacionActivada) {
 		super();
@@ -62,11 +74,11 @@ public class Usuario {
 	public void setNotificacionActivada(Boolean notificacionActivada) {
 		this.notificacionActivada = notificacionActivada;
 	}
-	public TipoUsuario getListTipoUsuario() {
-		return listTipoUsuario;
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
 	}
-	public void setListTipoUsuario(TipoUsuario listTipoUsuario) {
-		this.listTipoUsuario = listTipoUsuario;
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	public List<EstadoUsuario> getListEstadoUsuario() {
 		return listEstadoUsuario;

@@ -2,13 +2,20 @@ package org.dondevoy.usuario.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author Pablo Lucero
  * 
  *
  */
+@Entity
 public class Nota {
 
+	@Id
+	private int idNota;
+	
 	private String descripcion;
 	private Date fechaNota;
 	private String titulo;
