@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:include src="/insert/header.xhtml" />
+	<h:panelGroup layout="block" style="width: 50%; margin: 0 auto;">
+		<h:form method="post">
+			<h2>Ingresar a Sam</h2>
+			<h:panelGrid columns="2">
+				<h:outputText value="Usuario" />
+				<h:inputText id="login"
+					value="#{authenticationManagedBean.userLogin}"  required="true"/>
+				<h:outputText value="Clave" />
+				<h:inputSecret id="password"
+					value="#{authenticationManagedBean.userPassword}" required="true"/>
+			</h:panelGrid>
+			<h:messages styleClass="error"/>
+			<h:panelGrid columns="2">
+				<h:commandButton value="Login"
+					action="#{authenticationManagedBean.login}" />
+				<h:commandButton value="cancelar " action="/index.xhtml" />
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+	<ui:include src="/insert/footer.xhtml" />
+</h:body>
+</html>

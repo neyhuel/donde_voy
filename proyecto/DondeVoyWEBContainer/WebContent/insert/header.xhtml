@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet name="tableStyles.css" library="css" />
+	<h:outputStylesheet name="jquery-ui-1.10.4.custom.css" library="cupertino" />
+	<h:outputScript name="jquery-1.10.2.js" library="js" />
+	<h:outputScript name="jquery-ui-1.10.4.custom.js" library="js" />
+</h:head>
+<body>
+	<h:panelGroup layout="block" styleClass="header">
+		<h:form method="post" id="headerForm">
+			<h:panelGroup rendered="#{not empty request.userPrincipal}">
+				<h:commandLink action="/index?faces-redirect=true" value="Inicio | " />
+				<h:commandLink action="/student/academicStatus?faces-redirect=true"
+					value="Estado académico | "
+					rendered="#{request.isUserInRole('STUDENT')}" />
+				<h:commandLink action="/admin/admin?faces-redirect=true"
+					value="Administrar Estudiantes | "
+					rendered="#{request.isUserInRole('ADMIN')}" />
+
+				<h:panelGroup styleClass="loggedUser">
+					<h:outputLabel value="Usuario: " for="loggedUser" />
+					
+					<h:commandLink action="/register" rendered="#{not empty sessionScope.user.legajo}">
+					<h:outputText id="loggedUser" value="#{request.getUserPrincipal()}" />
+						<f:param name="legajo" value="#{sessionScope.user.legajo}"  />
+					</h:commandLink>
+					<h:outputText  value="#{request.getUserPrincipal()}"  rendered="#{empty sessionScope.user.legajo}" style="color:red;"/>
+					
+				</h:panelGroup>
+				<h:commandLink action="#{authenticationManagedBean.logout}"
+					styleClass="loginBtn">
+					<h:graphicImage alt="Cerrar session" name="login/logout.png"
+						style="width: 24px;" library="img" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{empty request.userPrincipal}">
+				<h:panelGroup styleClass="loggedUser">
+				<h:commandLink action="/register?faces-redirect=true" >
+					<h:graphicImage alt="Registrarse" name="personas.png"
+							style="width: 24px;" library="img" />
+				</h:commandLink>
+				</h:panelGroup>
+				<h:commandLink action="login" styleClass="loginBtn">
+					<h:graphicImage alt="Ingresar a Sam" name="login/login.png"
+						style="width: 24px;" library="img" />
+				</h:commandLink>
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+</body>
+</html>
+
+

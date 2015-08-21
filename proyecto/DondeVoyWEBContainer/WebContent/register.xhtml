@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Register</title>
+</h:head>
+<h:body>
+	<ui:include src="/insert/header.xhtml" />
+	
+	<h1>
+	<h:outputText rendered="#{empty request.userPrincipal}" value="Registrar Estudiante"/>
+	<h:outputText rendered="#{not empty request.userPrincipal}" value="Modificar datos Estudiante"/>
+	</h1>
+	<h:panelGroup layout="block" style="width: 50%; margin: 0 auto;">
+		<h:form method="post">
+			<h2>Datos de Registro</h2>
+			<h:panelGrid columns="2">
+				<h:outputText value="Usuario" />
+				<h:inputText id="login"	value="#{registerManagedBean.userLogin}" required="true" />
+				<h:outputText value="Clave" rendered="#{registerManagedBean.nuevo}"/>
+				<h:inputSecret id="password" value="#{registerManagedBean.userPassword}" rendered="#{registerManagedBean.nuevo}" required="true"/>
+				<h:outputText value="ConfirmClave" rendered="#{registerManagedBean.nuevo}"/>
+				<h:inputSecret id="confirmpassword" value="#{registerManagedBean.userConfirmpassword}" rendered="#{registerManagedBean.nuevo}" required="true"/>
+				<h:outputText value="Nombre" />
+				<h:inputText id="name" value="#{registerManagedBean.userName}" required="true"/>
+				<h:outputText value="Apellido" />
+				<h:inputText id="lastname" value="#{registerManagedBean.userLastname}" required="true"/>
+				<h:outputText value="Legajo" />
+				<h:inputText id="legajo" value="#{registerManagedBean.userLegajo}" readonly="#{not registerManagedBean.nuevo}" required="true"/>
+				<h:outputText value="Mail" />
+				<h:inputText id="mail" value="#{registerManagedBean.userMail}" required="true"/>
+			</h:panelGrid>
+			<h:messages  styleClass="error"/>
+			<h:panelGrid columns="2">
+				<h:commandButton value="Send" action="#{registerManagedBean.register}" /> 
+				<h:commandButton value="Back" action="/index.xhtml?faces-redirect=true" immediate="true" />
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+<ui:include src="/insert/footer.xhtml" />
+</h:body>
+</html>
