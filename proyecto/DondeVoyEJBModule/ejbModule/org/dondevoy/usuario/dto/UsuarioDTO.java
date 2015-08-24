@@ -1,5 +1,6 @@
 package org.dondevoy.usuario.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.dondevoy.usuario.entities.EstadoUsuario;
