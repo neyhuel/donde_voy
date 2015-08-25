@@ -5,15 +5,18 @@ import java.util.Date;
 /**
  * @author Pablo Lucero
  * 
- *
+ * 
  */
 
 public class EstadoSucursal {
 
 	private Date fechaCambio;
-	
 	private SucursalEstado sucursalEstado;
 
+	public EstadoSucursal(Date fechaCambio,SucursalEstado sucursalEstado){
+		this.fechaCambio = fechaCambio;
+		this.sucursalEstado = sucursalEstado;
+	}
 	public Date getFechaCambio() {
 		return fechaCambio;
 	}
@@ -29,6 +32,5 @@ public class EstadoSucursal {
 	public void setSucursalEstado(SucursalEstado sucursalEstado) {
 		this.sucursalEstado = sucursalEstado;
 	}
-	
-	
+
 }

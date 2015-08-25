@@ -6,10 +6,16 @@ package org.dondevoy.entidad.entities;
  *
  */
 
-public class EntidadEstado {
-
+public enum EntidadEstado {
+	ACTIVA("Activa"), INACTIVA("Inactiva");
 	private String descripcion;
 	private String nombreEstado;
+	
+	
+	private EntidadEstado(String nombreEstado){
+		this.nombreEstado = nombreEstado;
+	}
+
 	
 	public String getDescripcion() {
 		return descripcion;

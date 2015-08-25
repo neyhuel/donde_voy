@@ -8,6 +8,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.dondevoy.usuario.UsuarioServiceRemote;
+import org.dondevoy.usuario.dto.UsuarioDTO;
+
 @ManagedBean
 @RequestScoped
 public class RegistroManagedBean {
