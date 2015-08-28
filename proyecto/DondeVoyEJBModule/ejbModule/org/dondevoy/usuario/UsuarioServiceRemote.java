@@ -11,7 +11,7 @@ public interface UsuarioServiceRemote {
 	public void registrarUsuario (UsuarioDTO usuarioDTO) throws BusinessException;
 //	Registra un usuario en el sistema
 	
-	public UsuarioDTO buscarUsuario (String correo) throws BusinessException;
+	public UsuarioDTO buscarUsuario (UsuarioDTO usuarioDTO) throws BusinessException;
 //	Buscar un usuario con determinado correo electrónico
 	
 }
