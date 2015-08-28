@@ -7,7 +7,8 @@ import org.dondevoy.entidad.dto.TipoEntidadDTO;
 
 public interface EntidadServiceRemote {
 	public void altaEntidad (EntidadDTO EntidadDTO, SucursalDTO SucursalDTO,TipoEntidadDTO tipoEntidadDTO) throws BusinessException;
-	public EntidadDTO buscarEntidad(String nombre) throws BusinessException;
-
+	public EntidadDTO buscarEntidad(EntidadDTO entidadDTO) throws BusinessException;
+	public void EliminarEntidad(EntidadDTO entidadDTO);
+	public void cambiarEstadoEntidad(EntidadDTO entidadDTO);
 	
 }

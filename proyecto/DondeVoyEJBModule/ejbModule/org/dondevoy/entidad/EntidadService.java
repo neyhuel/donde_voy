@@ -2,6 +2,7 @@ package org.dondevoy.entidad;
 
 import org.dondevoy.aplicacion.excepciones.BusinessException;
 import org.dondevoy.entidad.dto.EntidadDTO;
+import org.dondevoy.entidad.dto.EntidadDTOFabrica;
 import org.dondevoy.entidad.dto.SucursalDTO;
 import org.dondevoy.entidad.dto.TipoEntidadDTO;
 import org.dondevoy.entidad.entities.Entidad;
@@ -14,11 +15,12 @@ import org.dondevoy.entidad.entities.SucursalEstado;
 
 
 
+
 import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import java.util.List;
 
 public class EntidadService implements EntidadServiceRemote {
 
@@ -53,10 +55,41 @@ public class EntidadService implements EntidadServiceRemote {
 		//Entidad entidad = new Entidad(EntidadDTO.getNombreEntidad(), sucursal, estadoEntidad); 
 		
 	}
-
-	@Override
-	public EntidadDTO buscarEntidad(String nombre) throws BusinessException {
-		manager.find(Entidad.class, nombre);
-		return EntidadDTO;
+	
+	public EntidadDTO buscarEntidad(EntidadDTO entidadDTO) throws BusinessException {
+		Entidad entidad = manager.find(Entidad.class, entidadDTO.getNombreEntidad());
+		return EntidadDTOFabrica.crearEntidadDTO(entidad);
+	}
+	
+	public void EliminarEntidad(EntidadDTO entidadDTO){
+		Entidad entidadABorrar = manager.find(Entidad.class, entidadDTO.getNombreEntidad());
+		if (entidadABorrar == null){
+			//throw new BusinessException("La entidad no existe");
+		}
+		manager.remove(entidadABorrar);
+	}
+	
+	public void cambiarEstadoEntidad(EntidadDTO entidadDTO){
+		Entidad entidadAModificar = manager.find(Entidad.class, entidadDTO.getNombreEntidad());
+		if (entidadAModificar == null){
+			//throw new BusinessException("La entidad no existe");
+		}
+		//Obtengo la instancia mas actual de EstadoEntidad
+		List<EstadoEntidad> lista = entidadAModificar.getListEstadoEntidad();
+		EstadoEntidad estadoMasNuevo =  lista.get(0);
+		for(int i=0;i<lista.size();i++){
+			if(lista.get(i).getFechaCambio().after(estadoMasNuevo.getFechaCambio())){
+				estadoMasNuevo = lista.get(i);		
+			}
+		}
+		if(estadoMasNuevo.getEntidadEstado().getNombreEstado() == "Activo")
+			estadoMasNuevo.getEntidadEstado().setNombreEstado("Inactivo"); 
+		else
+			estadoMasNuevo.getEntidadEstado().setNombreEstado("Activo"); 
+		manager.refresh(estadoMasNuevo);
+	}	
+	public void modificarEntidad(EntidadDTO entidadDTO){
+		Entidad entidadAModificar = manager.find(Entidad.class, entidadDTO.getNombreEntidad());
+		manager.refresh(entidadAModificar);
 	}
 }
