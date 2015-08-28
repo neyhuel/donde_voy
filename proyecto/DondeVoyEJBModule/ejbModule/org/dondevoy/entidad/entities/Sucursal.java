@@ -2,14 +2,18 @@ package org.dondevoy.entidad.entities;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author Pablo Lucero
  * 
  *
  */
-
+@Entity
 public class Sucursal {
-
+	@Id	
+	private int idSucursal;
 	private boolean casaMatriz;
 	private String codigoPostal;
 	private String latitud;
@@ -23,6 +27,21 @@ public class Sucursal {
 	private Turnero sistemaTurnero;
 	private List<HorarioDeAtencionEntidad> listHorarioDeAtencionEntidad;
 	private List<Telefono> listTelefono;
+	
+	public Sucursal(){};
+	public Sucursal( boolean casaMatriz,String codigoPostal,
+			String latitud, String longitud, int numeroSucursal,
+			String observaciones, boolean turnero,EstadoSucursal estadoSucursal) {
+		
+		this.codigoPostal = codigoPostal;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.numeroSucursal = numeroSucursal;
+		this.observaciones = observaciones;
+		this.turnero = turnero;
+		this.listEstadoSucursal.add(estadoSucursal);
+	}
+	
 	public boolean isCasaMatriz() {
 		return casaMatriz;
 	}
@@ -70,6 +89,9 @@ public class Sucursal {
 	}
 	public void setListEstadoSucursal(List<EstadoSucursal> listEstadoSucursal) {
 		this.listEstadoSucursal = listEstadoSucursal;
+	}	
+	public void addEstadoSucursal(EstadoSucursal estadoSucursal) {
+		listEstadoSucursal.add(estadoSucursal); 
 	}
 	public Domicilio getDomicilio() {
 		return domicilio;

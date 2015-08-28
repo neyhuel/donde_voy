@@ -2,8 +2,14 @@ package org.dondevoy.planificacion.entities;
 
 import java.util.List;
 
-public class Tramite {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Tramite {
+	
+	@Id
+	private int idTramite;
 	private String descripcionTramite;
 	private String nombreTramite;
 	
