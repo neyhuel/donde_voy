@@ -1,13 +1,14 @@
 package org.dondevoy.entidad.entities;
 
-/**
- * @author Pablo Lucero
- * 
- *
- */
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+
+@Entity
 public class Turnero {
-
+	
+	@Id
+	private int idTurnero;
 	private String puerto;
 	private String urlTurneroSucursal;
 	public String getPuerto() {

@@ -11,6 +11,7 @@ import org.dondevoy.entidad.entities.Turnero;
 
 public class SucursalDTO {
 
+		private int idSucursal;
 		private boolean casaMatriz;
 		private String codigoPostal;
 		private String latitud;
@@ -25,6 +26,9 @@ public class SucursalDTO {
 		private List<HorarioDeAtencionEntidad> listHorarioDeAtencionEntidad;
 		private List<Telefono> listTelefono;
 		
+		public int getId(){
+			return idSucursal;
+		}
 		public boolean isCasaMatriz() {
 			return casaMatriz;
 		}

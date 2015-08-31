@@ -1,13 +1,15 @@
 package org.dondevoy.entidad.entities;
 
-/**
- * @author Pablo Lucero
- * 
- *
- */
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+
+@Entity
 public class Domicilio {
-
+	
+	@Id
+	private int idDomicilio;
 	private String calle;
 	private String casa;
 	private String departamento;
@@ -18,6 +20,7 @@ public class Domicilio {
 	private String manzana;
 	private String torre;
 	
+	//@ManyToOne
 	private Localidad localidad;
 
 	public String getCalle() {

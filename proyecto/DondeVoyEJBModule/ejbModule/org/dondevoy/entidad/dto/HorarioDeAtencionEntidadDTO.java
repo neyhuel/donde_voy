@@ -1,24 +1,18 @@
-package org.dondevoy.entidad.entities;
+package org.dondevoy.entidad.dto;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class HorarioDeAtencionEntidad {
-    
+import org.dondevoy.entidad.entities.Dia;
+
+public class HorarioDeAtencionEntidadDTO {
 	@Id
 	private int idHorarioDeAtencionEntidad;
 	private Date horarioAperturaEntidad;
 	private Date horaroCierreEntidad;
 	private Dia dia;
 
-	public HorarioDeAtencionEntidad(){}
-	public HorarioDeAtencionEntidad(Date horarioApertura, Date horarioCierre){
-		this.horarioAperturaEntidad = horarioApertura;
-		this.horaroCierreEntidad = horarioCierre;
-	}
 	public Date getHorarioAperturaEntidad() {
 		return horarioAperturaEntidad;
 	}
@@ -42,5 +36,4 @@ public class HorarioDeAtencionEntidad {
 	public void setDia(Dia dia) {
 		this.dia = dia;
 	}
-
 }
