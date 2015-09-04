@@ -1,0 +1,25 @@
+[
+	{
+		"id": 1,
+		"name": "info",
+		"itemUrl": "/crud/info"
+	},
+
+	{
+		"id": 2,
+		"name": "Add",
+		"itemUrl": "/crud/add"
+	},
+
+	{
+		"id": 3,
+		"name": "Edit",
+		"itemUrl": "/crud/edit"
+	},
+
+	{
+		"id": 4,
+		"name": "Remove",
+		"itemUrl": "/crud/remove"
+	}
+]

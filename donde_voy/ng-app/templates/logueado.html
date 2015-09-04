@@ -1,0 +1,352 @@
+<div class="container" ng-controller="logueadoCtrl">
+	<div class="row separador">
+		<div class="col-xs-3"> <!-- required for floating -->
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs tabs-left">
+				<li class="active"><a href="#inicio" data-toggle="tab">Inicio</a></li>
+				<li><a href="#planificador" data-toggle="tab">Planificador</a></li>
+				<li><a href="#tramites" data-toggle="tab">Mis tramites</a></li>
+				<li><a href="#notas" data-toggle="tab">Notas</a></li>
+				<li><a href="#panel" data-toggle="tab">Panel de Control</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-9">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="inicio">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Proximo tramites a realizar</h3>
+								</div>
+								<div class="panel-body">
+									<p>Ir al banco</p>
+									<p>Ir a rentas</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Ultimas planificaiones realizadas</h3>
+								</div>
+								<div class="panel-body">
+									<p>Ir al banco</p>
+									<p>Ir a rentas</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Ultimas notas cargadas</h3>
+								</div>
+								<div class="panel-body">
+									<p>El lunes pasado hubo paro en tramite <a href="#">Ir al banco</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Estadisticas</h3>
+								</div>
+								<div class="panel-body">
+									<p>Ir al banco</p>
+									<p>Ir a rentas</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="planificador">
+					<div class="row">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#paso1" data-toggle="tab">Paso 1</a></li>
+							<li><a href="#paso2" data-toggle="tab">Paso 2</a></li>
+							<li><a href="#paso3" data-toggle="tab">Paso 3</a></li> 
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div class="tab-pane active" id="paso1">
+								<div class="row">
+									<div class="col-sm-6">
+										<form class="form-plan paso1 separacion">
+											<select class="form-control">
+												<option value="">Selecciona una Entidad</option>
+												<option value="privada">Banco Nacion</option>
+												<option value="publica">ATM</option>
+											</select required> 
+											<select class="form-control">
+												<option value="">Selecciona un Trámite</option>
+												<option value="privada">Ir a las cajas</option>
+												<option value="publica">Ir al box</option>
+											</select required> 
+											<a class="btn btn-success" href="#paso2" data-toggle="tab">Agregar Trámite</a>
+											<a class="btn btn-primary" href="#paso2" data-toggle="tab">Siguiente</a>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="paso2">
+								<div class="col-sm-6">
+									<form class="form-plan paso1 separacion">
+										<label>Fecha desde:</label>
+										<input type="date" id="fechaDesde" name="fechaDesde"></br>
+										<label>Fecha hasta:</label>
+										<input type="date" id="fechaHasta" name="fechaHasta"></br>
+										<label>Hora desde:</label>
+										<input type="date" id="fechaDesde" name="fechaDesde"></br>
+										<label>Hora hasta:</label>
+										<input type="date" id="fechaHasta" name="fechaHasta"></br>
+										<a class="btn btn-default" href="#paso1" data-toggle="tab">Anterior</a>
+										<a class="btn btn-primary" href="#paso3" data-toggle="tab">Siguiente</a>
+									</form>
+								</div>
+							</div>
+							<div class="tab-pane" id="paso3">
+								<a class="btn btn-default separacion" href="#paso2" data-toggle="tab">Anterior</a>
+								<a class="btn btn-success separacion" href="#" data-toggle="tab">Planificar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="tramites">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Ir al banco</h3>
+								</div>
+								<div class="panel-body">
+									<p>Llevar las boletas</p>
+									<p>Llevar el DNI</p>
+									<p>Llevar el cheque para cobrar</p>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-trash"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-paperclip" data-toggle="modal" data-target="#myModalTramiteNota"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-time" data-toggle="modal" data-target="#myModalTramiteAlarma"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-pencil"></span></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-success">
+								<div class="panel-heading">
+									<h3 class="panel-title">Ir a rentas</h3>
+								</div>
+								<div class="panel-body">
+									<p>Llevar formulario de alta de AFIP</p>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-trash"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-paperclip"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-time"></span></div>
+									<div class="to-right action-tramite"><span class="glyphicon glyphicon-pencil"></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<h4>
+							<span class="label label-default">Baja</span>
+							<span class="label label-primary">En proceso</span>
+							<span class="label label-success">Completado</span>
+							<span class="label label-info">Con notas</span>
+							<span class="label label-warning">Con alerta</span>
+							<span class="label label-danger">Vencido</span>
+						</h4>
+					</div>
+				</div>
+				<div class="tab-pane" id="notas">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-warning">
+								<div class="panel-heading">
+									<h3 class="panel-title">Nota en tramite <a href="#"><strong>Ir al banco</strong></a></h3>
+								</div>
+								<div class="panel-body">
+									<p>El lunes pasado hubo paro</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="panel">
+					<div class="row">
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#ModalEntidadesInscriptas">Administrar</br>Entidades</div><!-- 
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div>
+						<div class="col-sm-2 col-sm-offset-1 separacion btn btn-primary" data-toggle="modal" data-target="#myModal">Call to</br>Action</div> -->
+					</div>
+				</div>
+			</div>
+		</div>  
+	</div>
+</div>
+
+
+
+<!-- ModalEntidadesInscriptas -->
+<div class="modal fade" id="ModalEntidadesInscriptas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="row">
+					<h4 class="modal-title col-sm-2" id="myModalLabel">Entidad</h4>
+					<div class="col-sm-3 col-sm-offset-6 btn btn-success" data-toggle="modal" data-target="#myModalEntidades">Nueva Entidad</div>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Nombre Entidad</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Banco Nación</td>
+									<td>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-ok"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>ATM</td>
+									<td>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-ok"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td class="text-danger">Anses</td>
+									<td>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-ok"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="to-right action-tramite" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ModalEntidades -->
+<div class="modal fade" id="myModalEntidades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="row">
+					<h4 class="modal-title col-sm-2" id="myModalLabel">Entidad</h4>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form id="form-entidad col-sm-12" method="post" action="logueado.html">
+						<input class="form-control" id="nombreEntidad" name="nombreEntidad" type="text" placeholder="Nombre Entidad" required>
+						<select class="form-control">
+							<option value="">Selecciona un Tipo</option>
+							<option value="privada">Privada</option>
+							<option value="publica">Pública</option>
+						</select required> 
+						<input class="form-control" id="tipoEntidad" name="nombreEntidad" type="text" placeholder="Nombre Entidad" required>
+						<input class="form-control" id="calleEntidad" name="calleEntidad" type="text" placeholder="Calle Entidad" required>
+						<input class="form-control" id="numeroEntidad" name="numeroEntidad" type="text" placeholder="Numero" required>
+						<input class="form-control" id="primeraCalleEntreEntidad" name="primeraCalleEntreEntidad" type="text" placeholder="Primera calle entre" required>
+						<input class="form-control" id="primeraCalleEntreEntidad" name="primeraCalleEntreEntidad" type="text" placeholder="Segunda calle entre" required>
+						<input class="form-control" id="torreEntidad" name="torreEntidad" type="text" placeholder="Torre" required>
+						<input class="form-control" id="pisoEntidad" name="pisoEntidad" type="text" placeholder="Piso" required>
+						<input class="form-control" id="dpto" name="dpto" type="text" placeholder="Dpto/Officina/Local" required>
+						<input class="form-control" id="manzanaEntidad" name="manzanaEntidad" type="text" placeholder="Manzana" required>
+						<input class="form-control" id="localidadEntidad" name="localidadEntidad" type="text" placeholder="Localidad" required>
+						<input class="form-control" id="cpEntidad" name="cpEntidad" type="text" placeholder="CP" required>
+						<input class="form-control" id="departamentoEntidad" name="departamentoEntidad" type="text" placeholder="Departamento" required>
+						<input class="form-control" id="provinciaEntidad" name="provinciaEntidad" type="text" placeholder="Provincia" required>
+						<input class="form-control" id="emailEntidad" name="emailEntidad" type="text" placeholder="email" required>
+						<input class="form-control" id="telEntidad" name="telEntidad" type="text" placeholder="Telefono" required>
+						<input class="form-control" id="celEntidad" name="celEntidad" type="text" placeholder="Celular" required>
+						<textarea class="form-control" id="cobservacionesEntidad" name="observacionesEntidad" type="text" placeholder="Observaciones" required></textarea>
+						<div class="modal-footer">
+							<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
+							<input type="button" class="btn btn-success" data-dismiss="modal" value="Guardar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ModalTramiteAlarma -->
+<div class="modal fade" id="myModalTramiteAlarma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="row">
+					<h4 class="modal-title col-sm-2" id="myModalLabel">Alarma</h4>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form id="form-entidad col-sm-12" method="post" action="logueado.html">
+						<textarea class="form-control" id="recordar" name="recordar" type="text" placeholder="Recordar sobre" required></textarea>
+						<input class="form-control" id="hora" name="hora" type="text" placeholder="Hora" required>
+						<input class="form-control" id="minutos" name="minutos" type="text" placeholder="Minutos" required>
+						<input class="form-control" id="fecha" name="fecha" type="text" placeholder="dd/mm/aaaa" required>
+						<div class="modal-footer">
+							<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
+							<input type="button" class="btn btn-success" data-dismiss="modal" value="Guardar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ModalTramiteNota -->
+<div class="modal fade" id="myModalTramiteNota" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="row">
+					<h4 class="modal-title col-sm-2" id="myModalLabel">Nota</h4>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form id="form-entidad col-sm-12" method="post" action="logueado.html">
+						<textarea class="form-control" id="recordar" name="recordar" type="text" placeholder="Texto Nota" required></textarea>
+						<div class="modal-footer">
+							<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
+							<input type="button" class="btn btn-success" data-dismiss="modal" value="Guardar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

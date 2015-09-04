@@ -1,0 +1,95 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Import
+  1.1 - Colores
+2.0 - Correcciones Bootstrap
+3.0 - Estilos Generales
+4.0 - Elementos Ocultos
+5.0 - Navegación
+  5.1 - Main Menu
+        5.2 - Paging Navigation
+        5.3 - Social Menu
+  5.4 - Links
+6.0 - Contenido
+    6.1 - Seccion 00 - Portada
+    6.2 - Seccion 01 - Del Puente
+    6.3 - Seccion 02 – Servicios
+    6.4 - Seccion 03 – Dermocosmética
+    6.5 - Seccion 04 – Fragancias
+    6.6 - Seccion 05 – Noticias y Eventos
+    6.7 - Seccion 06 – Contacto
+    6.8 - Seccion 07 – Prefooter
+    6.9 - Footer
+7.0 - Responsive
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 - Import
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 - Colores
+--------------------------------------------------------------*/
+
+
+/***************************************************
+                    GENERALES
+****************************************************/
+
+.to-right{
+  float: right;
+}
+
+.to-left{
+  float: left;
+}
+
+.separador{
+  margin-top: 5%;
+}
+
+.separacion{
+  margin-top: 15px;
+}
+
+form input, form textarea, form select{
+  margin: 10px 0;
+}
+
+form p{
+  margin: 15px 0;
+}
+
+/***************************************************
+                    MIS TRAMITES
+****************************************************/
+
+.action-tramite{
+  margin: 5px;
+  cursor: pointer;
+}
+
+/***************************************************
+                    LOGIN
+****************************************************/
+
+#form-login{
+  margin-top: 50%;
+}
+
+/***************************************************
+                    CONTACTO
+****************************************************/
+
+#form-contacto, #form-recupera, #form-registro{
+  margin-top: 50%;
+}
+
+.error404{
+  width: 100%;
+  height: 100%;
+}

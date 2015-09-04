@@ -1,0 +1,12 @@
+<div class="container" ng-controller="contactoCtrl">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form id="form-contacto">
+				<input class="form-control" id="Nombre" name="Nombre" type="text" placeholder="Nombre y Apellido" required ng-model="contacto.nombre">
+				<input class="form-control" id="email" name="email" type="text" placeholder="email" required ng-model="contacto.mail">
+				<textarea class="form-control" id="contenido" name="contenido" type="text" placeholder="Dejanos un comentario" required ng-model="contacto.contenido"></textarea>
+				<input class="btn btn-primary to-right" id="Enviar" name="Enviar" value="Enviar" type="submit" ng-click="enviarForm($event)">
+			</form>
+		</div>
+	</div>
+</div>
