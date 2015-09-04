@@ -1,0 +1,15 @@
+<div class="container" ng-controller="registroCtrl">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form id="form-registro" role="form">
+				<input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre" data-toggle="tooltip" data-placement="right" title="Ingresa tu nombre" ng-model="registro.nombre" required>
+				<input class="form-control" id="apellido" name="apellido" type="text" placeholder="Nombre" data-toggle="tooltip" data-placement="right" title="Ingresa tu apellido" ng-model="registro.apellido" required>
+				<input class="form-control" id="mail" name="mail" type="text" placeholder="Email" data-toggle="tooltip" data-placement="right" title="Ingresa tu email" ng-model="registro.mail" required>
+				<input class="form-control" id="usuario" name="usuario" type="text" placeholder="Usuario" data-toggle="tooltip" data-placement="right" title="Ingresa tu usuario" ng-model="registro.user" required>
+				<input class="form-control" id="contrasenia" name="contrasenia" type="password" placeholder="Contraseña" data-toggle="tooltip" data-placement="right" title="Ingresa una contraseña" ng-model="registro.pass" required>
+				<input class="form-control" id="contrasenia" name="contrasenia" type="password" placeholder="Repite tu contraseña" data-toggle="tooltip" data-placement="right" title="Repite tu contraseña" ng-model="registro.passRepeat" required>
+				<input class="btn btn-primary to-right" id="Enviar" name="Enviar" value="Registrarme" type="submit" ng-click="enviarForm($event)">
+			</form>
+		</div>
+	</div>
+</div>
