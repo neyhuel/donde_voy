@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"name": "Inicio",
+		"itemUrl": "inicio"
+	},
+
+	{
+		"id": 2,
+		"name": "Listar Tablas",
+		"itemUrl": "listartabla"
+	},
+
+	{
+		"id": 3,
+		"name": "Contacto",
+		"itemUrl": "contacto"
+	}
+]

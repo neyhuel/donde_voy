@@ -1,0 +1,13 @@
+<div class="container" ng-controller="loginCtrl">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<form id="form-login" role="form">
+				<input class="form-control" id="usuario" name="usuario" type="text" placeholder="Usuario o email" data-toggle="tooltip" data-placement="right" title="Ingresa tu usuario o email con el que estas registrado" ng-model="login.user" required>
+				<input class="form-control" id="contrasenia" name="contrasenia" type="password" placeholder="Contraseña" data-toggle="tooltip" data-placement="right" title="Ingresa la contraseña con la cual te has registrado" ng-model="login.pass" required>
+				<input class="btn btn-primary to-right" id="Enviar" name="Enviar" value="Iniciar Sesión" type="submit" ng-click="signIn($event)">
+				<p><a class="to-left" href="#/recuperarpass">Olvide mi contraseña</a></br><a class="to-left" href="#/registro">Registrarme</a></p>
+			</form>
+			<div ng-show="login.fail">{{login.mensaje}}</div>
+		</div>
+	</div>
+</div>
