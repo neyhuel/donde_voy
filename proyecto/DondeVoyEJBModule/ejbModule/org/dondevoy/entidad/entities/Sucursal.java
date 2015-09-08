@@ -4,12 +4,10 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-/**
- * @author Pablo Lucero
- * 
- *
- */
+
 @Entity
 public class Sucursal {
 	@Id	
@@ -21,11 +19,15 @@ public class Sucursal {
 	private int numeroSucursal;
 	private String observaciones;
 	private boolean turnero;
-	
+	@OneToMany
 	private List<EstadoSucursal> listEstadoSucursal;
+	@OneToOne
 	private Domicilio domicilio;
+	@OneToOne
 	private Turnero sistemaTurnero;
+	@OneToMany
 	private List<HorarioDeAtencionEntidad> listHorarioDeAtencionEntidad;
+	@OneToMany
 	private List<Telefono> listTelefono;
 	
 	public Sucursal(){};
@@ -87,6 +89,7 @@ public class Sucursal {
 	public List<EstadoSucursal> getListEstadoSucursal() {
 		return listEstadoSucursal;
 	}
+
 	public void setListEstadoSucursal(List<EstadoSucursal> listEstadoSucursal) {
 		this.listEstadoSucursal = listEstadoSucursal;
 	}	
@@ -105,12 +108,20 @@ public class Sucursal {
 	public void setSistemaTurnero(Turnero sistemaTurnero) {
 		this.sistemaTurnero = sistemaTurnero;
 	}
+	
+	public void addHorarioDeAtencionEntidad(HorarioDeAtencionEntidad horario){
+		listHorarioDeAtencionEntidad.add(horario);
+	}
 	public List<HorarioDeAtencionEntidad> getListHorarioDeAtencionEntidad() {
 		return listHorarioDeAtencionEntidad;
 	}
 	public void setListHorarioDeAtencionEntidad(
 			List<HorarioDeAtencionEntidad> listHorarioDeAtencionEntidad) {
 		this.listHorarioDeAtencionEntidad = listHorarioDeAtencionEntidad;
+	}
+	
+	public void addTelefono(Telefono telefono){
+		listTelefono.add(telefono);
 	}
 	public List<Telefono> getListTelefono() {
 		return listTelefono;

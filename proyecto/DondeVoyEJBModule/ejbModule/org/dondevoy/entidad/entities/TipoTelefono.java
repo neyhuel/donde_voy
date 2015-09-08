@@ -6,10 +6,14 @@ package org.dondevoy.entidad.entities;
  *
  */
 
-public class TipoTelefono {
+public enum TipoTelefono {
 
+	FAX("Fax"), FIJO("Fijo"),CELULAR("Celular");
 	private String nombreTipoTelefono;
 
+	private TipoTelefono(String nombreTipoTelefono){
+		this.nombreTipoTelefono = nombreTipoTelefono;
+	}
 	public String getNombreTipoTelefono() {
 		return nombreTipoTelefono;
 	}

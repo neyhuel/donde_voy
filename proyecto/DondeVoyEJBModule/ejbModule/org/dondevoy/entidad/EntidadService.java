@@ -27,7 +27,7 @@ public class EntidadService implements EntidadServiceRemote {
 	@PersistenceContext(unitName ="DondeVoyEJBModule")
 	private EntityManager manager;
 	
-	public void altaEntidad(EntidadDTO entidadDTO, SucursalDTO sucursalDTO, TipoEntidadDTO tipoEntidadDTO)
+	public void registrarEntidad(EntidadDTO entidadDTO, SucursalDTO sucursalDTO, TipoEntidadDTO tipoEntidadDTO)
 			throws BusinessException {
 		try {
 			Entidad entidadExistente = manager.find(Entidad.class, entidadDTO.getNombreEntidad());
