@@ -1,21 +1,21 @@
 package org.dondevoy.usuario.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * @author Pablo Lucero
  * 
  *
  */
-@Entity
-public class UsuarioEstado {
 
-	@Id
-	private int idUsuarioEstado;
+public enum UsuarioEstado {
+	ACTIVO("Activo"), INACTIVO("Inactivo");
 	
 	private String descripcionUsuarioEstado;
 	private String nombreUsuarioEstado;
+	
+	private UsuarioEstado(String nombreUsuarioEstado) {
+		this.nombreUsuarioEstado = nombreUsuarioEstado;
+	}
+	
 	public String getDescripcionUsuarioEstado() {
 		return descripcionUsuarioEstado;
 	}

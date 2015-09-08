@@ -1,23 +1,12 @@
-package org.dondevoy.entidad.entities;
+package org.dondevoy.entidad.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class PaisDTO {
 
-/**
- * @author Pablo Lucero
- * 
- *
- */
-@Entity
-public class Pais {
-
-	@Id
 	private int idPais;
 	private String abreviaturaNombrePais;
 	private String codigoAreaPais;
 	private String nombrePais;
 	private String zonaHoraria;
-	
 	public int getIdPais() {
 		return idPais;
 	}
@@ -27,7 +16,7 @@ public class Pais {
 	public String getAbreviaturaNombrePais() {
 		return abreviaturaNombrePais;
 	}
-	public void setAbreviaturaNombre(String abreviaturaNombrePais) {
+	public void setAbreviaturaNombrePais(String abreviaturaNombrePais) {
 		this.abreviaturaNombrePais = abreviaturaNombrePais;
 	}
 	public String getCodigoAreaPais() {
@@ -48,6 +37,5 @@ public class Pais {
 	public void setZonaHoraria(String zonaHoraria) {
 		this.zonaHoraria = zonaHoraria;
 	}
-	
 	
 }
