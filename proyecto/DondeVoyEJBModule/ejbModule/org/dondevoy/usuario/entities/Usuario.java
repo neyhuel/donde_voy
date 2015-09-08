@@ -16,15 +16,14 @@ import javax.persistence.OneToMany;
 public class Usuario {
 
 	@Id
+	private String correo;
 	private int idUsuario;
 	private String contraseña;
-	private String correo;
 	private String correoRecuperacion;
 	private String nombreUsuario;
 	private Boolean notificacionActivada;
-	
-	@ManyToOne
 	private TipoUsuario tipoUsuario;
+	
 	@OneToMany
 	private List<EstadoUsuario> listEstadoUsuario;
 	@OneToMany

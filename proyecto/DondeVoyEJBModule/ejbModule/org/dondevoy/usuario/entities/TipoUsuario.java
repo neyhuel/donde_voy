@@ -1,20 +1,20 @@
 package org.dondevoy.usuario.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * @author Pablo Lucero
  * 
  *
  */
-@Entity
-public class TipoUsuario {
 
-	@Id
-	private int idTipoUsuario;
+public enum TipoUsuario {
+	PERSONA("Persona"), ENTIDAD("Entidad");
+	
 	private String nombreTipoUsuario;
 
+	private TipoUsuario(String nombreTipoUsuario){
+		this.nombreTipoUsuario = nombreTipoUsuario;
+	}
+	
 	public String getNombreTipoUsuario() {
 		return nombreTipoUsuario;
 	}

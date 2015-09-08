@@ -1,11 +1,14 @@
 package org.dondevoy.usuario;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.dondevoy.aplicacion.excepciones.BusinessException;
 import org.dondevoy.usuario.dto.UsuarioDTO;
 import org.dondevoy.usuario.dto.UsuarioDTOFabrica;
+import org.dondevoy.usuario.entities.EstadoUsuario;
 import org.dondevoy.usuario.entities.Usuario;
 
 public class UsuarioService implements UsuarioServiceRemote {
@@ -46,7 +49,7 @@ public class UsuarioService implements UsuarioServiceRemote {
 		try {
 			usuarioAEliminar = manager.find(Usuario.class, usuarioDTO.getCorreo());
 			if (usuarioAEliminar == null){
-				throw new BusinessException("El usuario no existe");
+				throw new BusinessException("El usuario no existe.");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -55,19 +58,46 @@ public class UsuarioService implements UsuarioServiceRemote {
 	}
 	
 	public void modificarUsuario (UsuarioDTO usuarioDTO) throws BusinessException {
+		Usuario usuarioAModificar = null;
 		try {
-			
+			usuarioAModificar = manager.find(Usuario.class, usuarioDTO.getCorreo());
+			if ( usuarioAModificar == null){
+				throw new BusinessException("El usuario no existe.");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-	}
+		usuarioAModificar.setContraseña(usuarioDTO.getContraseña());
+		usuarioAModificar.setCorreo(usuarioDTO.getCorreo());
+		usuarioAModificar.setCorreoRecuperacion(usuarioDTO.getCorreoRecuperacion());
+		usuarioAModificar.setNombreUsuario(usuarioDTO.getNombreUsuario());
+		usuarioAModificar.setNotificacionActivada(usuarioDTO.getNotificacionActivada());
+		manager.refresh(usuarioAModificar);
+	}	
 	
 	public void cambiarEstadoUsuario (UsuarioDTO usuarioDTO) throws BusinessException {
+		Usuario usuarioAModificar = null;
 		try {
-			
+			usuarioAModificar = manager.find(Usuario.class, usuarioDTO.getCorreo());
+			if (usuarioAModificar == null){
+				throw new BusinessException("El usuario no existe.");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		List<EstadoUsuario> lista = usuarioAModificar.getListEstadoUsuario();
+		EstadoUsuario estadoMasNuevo = lista.get(0);
+		for (int i = 0; i < lista.size(); i++) {
+			if(lista.get(i).getFechaCambio().after(estadoMasNuevo.getFechaCambio())){
+				estadoMasNuevo = lista.get(i);
+			}
+		}
+		if(estadoMasNuevo.getUsuarioEstado().getNombreUsuarioEstado() == "Activo"){
+			estadoMasNuevo.getUsuarioEstado().setNombreUsuarioEstado("Inactivo");
+		} else {
+			estadoMasNuevo.getUsuarioEstado().setNombreUsuarioEstado("Activo");
+		}
+		manager.refresh(estadoMasNuevo);
 	}
 	
 }

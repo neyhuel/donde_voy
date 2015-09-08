@@ -3,8 +3,6 @@
 	<persistence-unit name="DondeVoyEJBModule">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>org.dondevoy.usuario.entities.Usuario</class>
-		<class>org.dondevoy.usuario.entities.TipoUsuario</class>
-		<class>org.dondevoy.usuario.entities.UsuarioEstado</class>
 		<class>org.dondevoy.usuario.entities.EstadoUsuario</class>
 		<class>org.dondevoy.usuario.entities.Nota</class>
 		<properties>

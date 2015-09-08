@@ -1,13 +1,18 @@
 package org.dondevoy.entidad.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author Pablo Lucero
  * 
  *
  */
-
+@Entity
 public class Localidad {
 
+	@Id
+	private int idLocalidad;
 	private String nombreLocalidad;
 	
 	private Provincia provincia;
@@ -26,6 +31,14 @@ public class Localidad {
 
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
+	}
+
+	public int getIdLocalidad() {
+		return idLocalidad;
+	}
+
+	public void setIdLocalidad(int idLocalidad) {
+		this.idLocalidad = idLocalidad;
 	}
 	
 	
