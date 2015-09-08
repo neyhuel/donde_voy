@@ -3,8 +3,8 @@
 	<name>DondeVoyEAR</name>
 	<comment></comment>
 	<projects>
-		<project>DondeVoyWEBContainer</project>
 		<project>DondeVoyEJBModule</project>
+		<project>DondeVoyWEBContainer</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

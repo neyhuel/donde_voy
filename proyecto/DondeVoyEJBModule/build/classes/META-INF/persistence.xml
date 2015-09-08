@@ -2,6 +2,7 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="DondeVoyEJBModule">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/DondeVoyDS</jta-data-source>
 		<class>org.dondevoy.usuario.entities.Usuario</class>
 		<class>org.dondevoy.usuario.entities.TipoUsuario</class>
 		<class>org.dondevoy.usuario.entities.UsuarioEstado</class>

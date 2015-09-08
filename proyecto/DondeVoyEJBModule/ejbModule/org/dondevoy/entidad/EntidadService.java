@@ -1,30 +1,30 @@
 package org.dondevoy.entidad;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.dondevoy.aplicacion.excepciones.BusinessException;
 import org.dondevoy.entidad.dto.EntidadDTO;
 import org.dondevoy.entidad.dto.EntidadDTOFabrica;
 import org.dondevoy.entidad.dto.SucursalDTO;
 import org.dondevoy.entidad.dto.TipoEntidadDTO;
 import org.dondevoy.entidad.entities.Entidad;
-import org.dondevoy.entidad.entities.EstadoEntidad;
 import org.dondevoy.entidad.entities.EntidadEstado;
+import org.dondevoy.entidad.entities.EstadoEntidad;
 import org.dondevoy.entidad.entities.EstadoSucursal;
 import org.dondevoy.entidad.entities.Sucursal;
 import org.dondevoy.entidad.entities.SucursalEstado;
 
-
-
-
-
-import java.util.Date;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-
+@Stateless
+@LocalBean
 public class EntidadService implements EntidadServiceRemote {
 
-	@PersistenceContext
+	@PersistenceContext(unitName ="DondeVoyEJBModule")
 	private EntityManager manager;
 	
 	public void altaEntidad(EntidadDTO entidadDTO, SucursalDTO sucursalDTO, TipoEntidadDTO tipoEntidadDTO)

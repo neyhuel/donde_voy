@@ -1,9 +1,14 @@
 package org.dondevoy.usuario;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
 import org.dondevoy.aplicacion.excepciones.BusinessException;
 import org.dondevoy.usuario.dto.UsuarioDTO;
 import org.dondevoy.usuario.entities.Usuario;
 
+@Stateless
+@LocalBean
 public class UsuarioService implements UsuarioServiceRemote {
 
 	public void registrarUsuario (UsuarioDTO usuarioDTO) throws BusinessException {
